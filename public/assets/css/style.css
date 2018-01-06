@@ -1,0 +1,16 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: url(../images/hero.jpg) 0% 0% / cover no-repeat;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
