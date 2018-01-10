@@ -14,3 +14,17 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.azenix-caption {
+    position: relative;
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .caption-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
