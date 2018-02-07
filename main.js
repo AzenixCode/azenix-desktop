@@ -1,10 +1,15 @@
 'use strict';
 
 // Import parts of electron to use
-const {app, BrowserWindow, Menu} = require('electron');
+const electron = require('electron');
 const path = require('path');
 const url = require('url');
 const openAboutWindow = require('about-window').default;
+const windowStateKeeper = require('electron-window-state');
+
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -16,19 +21,30 @@ let enableScreenshotProtection = true;
 let template = null;
 let menu = null;
 
-if ( process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath) ) {
+if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath)) {
   dev = true;
 }
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 1024, height: 768, show: false
+  var iconpath = path.join(__dirname, '/public/assets/images/icons/azenix-16x16.png');
+  let {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+
+  let mainWindowState = windowStateKeeper({
+    defaultWidth: width - 100,
+    defaultHeight: height - 100
   });
+
+  mainWindow = new BrowserWindow({width: mainWindowState.defaultWidth, height: mainWindowState.defaultHeight, x: mainWindowState.x, y: mainWindowState.y, center: false,
+    icon: iconpath, resizable: true, frame: true, show: false});
+
+  mainWindow.setContentProtection(true);
+  mainWindowState.manage(mainWindow);
 
   // and load the index.html of the app.
   let indexPath;
-  if ( dev && process.argv.indexOf('--noDevServer') === -1 ) {
+  
+  if (dev && process.argv.indexOf('--noDevServer') === -1) {
     indexPath = url.format({
       protocol: 'http:',
       host: 'localhost:8080',
@@ -42,13 +58,13 @@ function createWindow() {
       slashes: true
     });
   }
-  mainWindow.loadURL( indexPath );
+  mainWindow.loadURL(indexPath);
 
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
     // Open the DevTools automatically if developing
-    if ( dev ) {
+    if (dev) {
       mainWindow.webContents.openDevTools();
     }
   });
