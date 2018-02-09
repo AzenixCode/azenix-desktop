@@ -1,0 +1,5 @@
+*.md
+LICENSE
+package-lock.json
+package.json
+*.config.js

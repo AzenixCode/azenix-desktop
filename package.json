@@ -1,6 +1,7 @@
 {
   "name": "azenix-wallet",
   "version": "1.0.0",
+  "productName": "Azenix Desktop Wallet",
   "description": "AzeniX Desktop Wallet",
   "author": "",
   "main": "main.js",
@@ -13,7 +14,9 @@
     "postpackage": "electron-packager ./ --out=./builds"
   },
   "devDependencies": {
+    "about-window": "^1.9.1",
     "babel-core": "^6.24.1",
+    "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.24.1",
     "babili-webpack-plugin": "^0.1.2",
@@ -21,6 +24,9 @@
     "electron": "^1.7.11",
     "electron-packager": "^9.1.0",
     "electron-window-state": "^4.1.1",
+    "eslint": "^4.17.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-react": "^7.6.1",
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.28.0",
