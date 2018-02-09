@@ -1,10 +1,11 @@
 // import '../assets/css/MainLayout.scss';
 import React, { Component, cloneElement } from 'react';
+import Navbar from '../components/Navbar.jsx';
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="page page-dashboard">
-      <div className="sidebar">Sidebar here</div>
+    <div className="container-fluid">
+      <Navbar />
       <div className="main">{children}</div>
     </div>
   )
