@@ -1,4 +1,4 @@
-import '../assets/css/App.css';
+import '../assets/css/App.scss';
 import React, { Component } from 'react';
 
 class App extends React.Component {

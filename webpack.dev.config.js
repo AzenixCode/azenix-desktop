@@ -20,9 +20,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-        include: defaultInclude
+        test: /\.scss$/,
+        include: defaultInclude,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.jsx?$/,
