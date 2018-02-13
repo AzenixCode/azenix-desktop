@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.jsx';
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="container-fluid">
+    <div className="main-layout container-fluid">
       <Navbar />
       <div className="main">{children}</div>
     </div>

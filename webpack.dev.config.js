@@ -20,14 +20,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        include: defaultInclude,
+        test: /\.(scss|css)$/,
         loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.jsx?$/,
-        use: [{ loader: 'babel-loader' }],
-        include: defaultInclude
+        test: /\.(jsx|js)?$/,
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.(jpe?g|png|gif)$/,

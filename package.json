@@ -40,6 +40,8 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "react-bootstrap": "^0.32.1",
+    "react-bootstrap-sidebar": "0.0.1",
     "react-router-dom": "^4.2.2"
   }
 }
