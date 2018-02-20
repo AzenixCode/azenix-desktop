@@ -21,17 +21,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        }),
-        include: defaultInclude
+        test: /\.(scss|css)$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.jsx?$/,
-        use: [{ loader: 'babel-loader' }],
-        include: defaultInclude
+        test: /\.(jsx|js)?$/,
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -39,10 +34,9 @@ module.exports = {
         include: defaultInclude
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
-        include: defaultInclude
-      }
+      },
     ]
   },
   target: 'electron-renderer',
