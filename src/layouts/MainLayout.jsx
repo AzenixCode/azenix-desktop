@@ -1,18 +1,14 @@
-import '../assets/css/MainLayout.scss';
+// import '../assets/css/MainLayout.scss';
 import React, { Component, cloneElement } from 'react';
+import Navbar from '../components/Navbar.jsx';
 
-class MainLayout extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello, Electron!</h1>
-        <div className="child-spot">
-          { this.props.children &&
-            cloneElement(this.props.children, this.props.children.props) }
-        </div>
-      </div>
-    );
-  }
+const MainLayout = ({ children }) => {
+  return (
+    <div className="main-layout container-fluid">
+      <Navbar />
+      <div className="main">{children}</div>
+    </div>
+  )
 }
 
 export default MainLayout;

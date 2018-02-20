@@ -1,0 +1,47 @@
+.navbar {
+  height: 60px;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 0 !important;
+  .left {
+    width: 40%;
+    display: inline-block;
+    position: relative;
+    button {
+      position: absolute;
+      top: 2px;
+      outline: none;
+      background: black;
+      border: none;
+      i {
+        font-size: 22px;
+        color: white;
+      }
+    }
+  }
+  .right {
+    position: relative;
+    width: 40%;
+    display: inline-block;
+    color: white;
+    text-align: right;
+    span {
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+  }
+  .middle {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    img {
+      position: absolute;
+      top: -5px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

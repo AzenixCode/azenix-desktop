@@ -57,7 +57,7 @@ module.exports = {
             }
         ],
         "capitalized-comments": "off",
-        "class-methods-use-this": "error",
+        "class-methods-use-this": "off",
         "comma-dangle": "error",
         "comma-spacing": [
             "error",
@@ -98,10 +98,7 @@ module.exports = {
             "error",
             "never"
         ],
-        "func-style": [
-            "error",
-            "declaration"
-        ],
+        "func-style": "off",
         "function-paren-newline": "error",
         "generator-star-spacing": "error",
         "getter-return": "error",
@@ -133,10 +130,6 @@ module.exports = {
             }
         ],
         "line-comment-position": "error",
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
         "lines-between-class-members": "error",
@@ -239,6 +232,7 @@ module.exports = {
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
         "no-unused-expressions": "error",
+        "no-unused-vars": "off",
         "no-use-before-define": "off",
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
@@ -286,7 +280,6 @@ module.exports = {
             "error",
             "last"
         ],
-        "sort-imports": "error",
         "sort-keys": "off",
         "sort-vars": "error",
         "space-before-blocks": "error",

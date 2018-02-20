@@ -1,0 +1,13 @@
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,700&amp;subset=vietnamese);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+
+body {
+  margin: 0;
+  font-family: Montserrat;
+  font-weight: 300;
+  .main-layout {
+    padding: 0;
+  }
+}
