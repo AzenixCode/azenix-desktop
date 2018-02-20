@@ -27,7 +27,7 @@ if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) |
 
 function createWindow() {
   // Create the browser window.
-  var iconpath = path.join(__dirname, '/public/assets/images/icons/azenix-16x16.png');
+  var iconpath = `${__dirname}/src/assets/images/icons/azenix-16x16.png`;
   let {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
 
   let mainWindowState = windowStateKeeper({
@@ -46,9 +46,8 @@ function createWindow() {
   
   if (dev && process.argv.indexOf('--noDevServer') === -1) {
     indexPath = url.format({
-      protocol: 'http:',
-      host: 'localhost:8080',
-      pathname: 'index.html',
+      protocol: 'file:',
+      pathname: path.join(__dirname, 'dist', 'index.html'),
       slashes: true
     });
   } else {
