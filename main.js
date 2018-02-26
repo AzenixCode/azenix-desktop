@@ -46,8 +46,9 @@ function createWindow() {
   
   if (dev && process.argv.indexOf('--noDevServer') === -1) {
     indexPath = url.format({
-      protocol: 'file:',
-      pathname: path.join(__dirname, 'dist', 'index.html'),
+      protocol: 'http:',
+	    host: 'localhost:8080',
+      pathname: 'index.html',
       slashes: true
     });
   } else {
