@@ -4,19 +4,43 @@ import React from 'react';
 import logo from '../assets/images/logo/400x400_white1.png';
 import Sidebar from 'react-bootstrap-sidebar';
 import { Nav, NavItem } from 'react-bootstrap';
+import JsonRpc from 'node-json-rpc';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isVisible: false
+      isVisible: false,
+      balance: 0
     };
   }
 
   updateModal(isVisible) {
     this.state.isVisible = isVisible;
     this.forceUpdate();
+  }
+
+  componentWillMount() {
+    let currentComponent = this;
+
+    const rpcOptions = {
+      port: 10905,
+      host: 'localhost',
+      path: '/',
+      strict: true
+    };
+
+    var client = new JsonRpc.Client(rpcOptions);
+
+    client.call({"jsonrpc": "2.0", "method": "getwalletinfo", "id": 0}, function (err, res) {
+      if (res.error) {
+        console.log(res.error.message);
+        currentComponent.setState({balance: 0});
+      } else {
+        currentComponent.setState({balance: res.result.balance});
+      }
+    });
   }
 
   render() {
@@ -29,7 +53,7 @@ class Navbar extends React.Component {
           <img src={logo} />
         </div>
         <div className="right">
-          <span>Balance: 100 AZX</span>
+          <span>Balance: {this.state.balance} AZX</span>
         </div>
         <Sidebar side="left" isVisible={ this.state.isVisible } onHide={ () => this.updateModal(false) }>
           <Nav>
